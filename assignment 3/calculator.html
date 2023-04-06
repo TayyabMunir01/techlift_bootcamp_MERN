@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+        body{
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("");
+            font-family: monospace;
+            font-size: 32px;
+            /*margin-top: 20px;*/
+            /*background: #1c1c1c;*/
+           /*background: rgb(2,0,36);*/
+/*background: linear-gradient(132deg, rgba(2,0,36,1) 0%, rgba(80,79,104,1) 0%, rgba(119,118,137,1) 0%, rgba(160,159,172,1) 0%, rgba(206,206,213,1) 58%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 127%);*/
+background: rgb(2,0,36);
+background: linear-gradient(144deg, rgba(2,0,36,1) 0%, rgba(93,92,115,1) 0%, rgba(131,130,147,1) 0%, rgba(134,133,150,1) 0%, rgba(134,133,150,1) 0%, rgba(134,133,150,1) 0%, rgba(134,133,150,1) 0%, rgba(134,133,150,1) 0%, rgba(235,235,238,1) 100%, rgba(250,250,251,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(244,244,246,1) 100%, rgba(255,255,255,1) 100%);
+        }
+        .container{
+            /* background-color: black; */
+            width: 350px;
+            height: 550px;
+            border-radius: 20px;
+            box-shadow: -2px 5px 20px #1c1c1c;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .screen{
+            height: 75px;
+            border-bottom: 1px solid #1c1c1c33;
+            /* border: 1px solid black; */
+            border-radius: 20px;
+            /* border-top: none; */
+            box-shadow: 0 2px 6px #1c1c1c1c;
+            padding: 5px 10px;
+            /*overflow-x: scroll;*/
+        }
+        .button{
+            height: 450px;
+            border-top: 1px solid #1c1c1c33;
+            border-radius: 20px;
+            /* border-bottom: none; */
+            /* display: flex; 
+            flex-direction: column;
+            align-items: center; */
+        }
+        .b1,.b2,.b3,.b4{
+            display: flex;
+            justify-content: space-evenly;
+            /* border: 1px solid #1c1c1c33; */
+            
+        }
+        .btn-cls,.btn-eq{
+            display: flex;
+            justify-content: center;
+            height: 75px;
+        }
+        
+        .b1 > div, .b2 > div, .b3 > div, .b4 > div{
+           width: 50px;
+           height: 75px;
+        }
+        [class*="btn"]{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #1c1c1c1c;
+            border-radius: 75px;
+            box-shadow: 0px 1px 6px #1c1c1c1c;
+        }
+        .btn-cls,.btn-eq{
+            border: none; 
+            box-shadow: none;
+        }
+        .screen > *{
+            transition: all 2 ease;
+        }
+        @media (max-width: 372px){
+            body{
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <div class="container">
+        <div class="screen"> </div>
+        <div class="button"> 
+                <div class="btn-cls">Clear</div>
+                <!-- <div class="btn-back"></div> -->
+                <div class="b1">
+                    <div class="btn-1">1</div>
+                    <div class="btn-2">2</div>
+                    <div class="btn-3">3</div>
+                    <div class="btn-*">*</div>
+                </div>
+                <div class="b2">
+                    <div class="btn-4">4</div>
+                    <div class="btn-5">5</div>
+                    <div class="btn-6">6</div>
+                    <div class="btn-/">/</div>
+                </div>
+                <div class="b3">
+                    <div class="btn-7">7</div>
+                    <div class="btn-8">8</div>
+                    <div class="btn-9">9</div>
+                    <div class="btn-+">+</div>
+                </div>
+                <div class="b4">
+                    <div class="btn-0">0</div>
+                    <!-- <div class="btn-dot">.</div> -->
+                    <div class="btn--">-</div>
+                </div>
+                <div class="btn-eq">=</div>
+        </div>
+   </div>
+
+   <script>
+
+    var screen = document.getElementsByClassName('screen')[0]
+    screen.innerHTML = ''
+    var cal
+    var enter = false
+    function ent(){
+        if(enter){
+            screen.innerHTML = ''
+            enter = false
+        }
+    }      
+
+        window.addEventListener("keydown", function(e){
+            console.log(e.keyCode,typeof e.keyCode)
+                var a = e.keyCode
+                switch(a){
+                    case 48:
+                    case 96:
+                        ent()
+                        screen.innerHTML += 0;
+                        break;
+                    case 49:
+                    case 97:
+                        ent()
+                        screen.innerHTML += 1;
+                        break;
+                    case 50:
+                    case 98:
+                        ent()
+                        screen.innerHTML += 2;
+                        break;
+                    case 51:
+                    case 99:
+                        ent()
+                        screen.innerHTML += 3;
+                        break;
+                    case 52:
+                    case 100:
+                        ent()
+                        screen.innerHTML += 4;
+                        break;
+                    case 53:
+                    case 101:
+                        ent()
+                        screen.innerHTML += 5;
+                        break;
+                    case 54:
+                    case 102:
+                        ent()
+                        screen.innerHTML += 6;
+                        break;
+                    case 55:
+                    case 103:
+                        ent()
+                        screen.innerHTML += 7;
+                        break;
+                    case 56:
+                    case 104:
+                        ent()
+                        screen.innerHTML += 8;
+                        break;
+                    case 57:
+                    case 105:
+                        ent()
+                        screen.innerHTML += 9;
+                        break;
+
+                    case 107:
+                    case 187:
+                        ent()
+                        screen.innerHTML += '+';
+                        break;
+                    case 109:
+                    case 189:
+                        ent()
+                        screen.innerHTML += '-';
+                        break;
+                    case 111:
+                    case 191:
+                        ent()
+                        screen.innerHTML += '/';
+                        break;
+                    case 106:
+                    case 56:
+                        screen.innerHTML += '*';
+                        break;
+
+                    case 13:
+                        console.log('enter')
+                        // screen.innerHTML += 9;
+                        cal = screen.innerHTML
+                        screen.innerHTML = eval(cal)
+                        console.log(cal,typeof cal)
+                        enter = true
+                        break;  
+                    case 46:
+                        console.log('clear')
+                        screen.innerHTML = ''
+                        break;
+                    case 8:
+                        console.log('backspace')
+                        var a = screen.innerHTML.slice(0,screen.innerHTML.length-1);
+                        screen.innerHTML = a
+                        console.log(typeof screen.innerHTML) 
+                        break;    
+
+                    default:
+                        break;
+                }
+        })
+
+    
+        window.addEventListener('click',function(e){
+            var a = e.target.innerHTML
+            console.log(a)
+            switch (a){
+                case '0':
+                    ent()
+                    screen.innerHTML += '0'
+                    break;
+                case '1':
+                    ent()
+                    screen.innerHTML += '1'
+                    break;
+                case '2':
+                    ent()
+                    screen.innerHTML += '2'
+                    break;
+                case '3':
+                    ent()
+                    screen.innerHTML += '3'
+                    break;
+                case '4':
+                    ent()
+                    screen.innerHTML += '4'
+                    break;
+                case '5':
+                    ent()
+                    screen.innerHTML += '5'
+                    break;
+                case '6':
+                    ent()
+                    screen.innerHTML += '6'
+                    break;
+                case '7':
+                    ent()
+                    screen.innerHTML += '7'
+                    break;
+                case '8':
+                    ent()
+                    screen.innerHTML += '8'
+                    break;
+                case '9':
+                    ent()
+                    screen.innerHTML += '9'
+                    break;
+
+                case '+':
+                    ent()
+                    screen.innerHTML += '+'
+                    break;
+                case '-':
+                    ent()
+                    screen.innerHTML += '-'
+                    break;
+                case '*':
+                    ent()
+                    screen.innerHTML += '*'
+                    break;
+                case '/':
+                    ent()
+                    screen.innerHTML += '/'
+                    break;
+
+                case 'Clear':
+                    screen.innerHTML = ''
+                    break;
+                case '=':
+                    cal = screen.innerHTML
+                    screen.innerHTML = eval(cal)
+                    enter = true
+                    
+
+                    break;
+
+                default:
+                    break;
+            }
+        })
+
+
+   </script>
+
+</body>
+</html>

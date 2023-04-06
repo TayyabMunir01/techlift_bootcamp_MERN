@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form</title>
+
+
+	<style type="text/css">
+		*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(to bottom right, #00ffff , #00ffff10);
+    font-size: 24px;
+    font-family: monospace;
+}
+
+.container{
+    width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+} 
+
+img{
+    border-radius: 50%;
+}
+div.image{
+    text-align: center;
+}
+
+fieldset div:nth-child(2),div:nth-child(4),div:nth-child(6),div:nth-child(7){    
+    text-align: center;    
+}
+#email,#password,button{
+    width: 90%;
+    font-size: 24px;
+    border-radius: 10px;
+    border: none;
+}
+legend{
+    font-size: 32px;
+}
+input[type="checkbox"]{
+    width:24px;
+    height: 24px;
+}
+div{
+    margin: 5px;
+}
+#email:hover, #password:hover, button:hover{
+    box-shadow: 0 -2px 6px 0px #e2dbdb;
+}
+fieldset div:nth-child(1),div:nth-child(3),div:nth-child(5){    
+    margin-left: 10px;  
+}
+fieldset div:nth-child(5){
+    padding-left: 4%;
+}
+fieldset div:nth-child(5) #rem{
+    padding-left: 4%;
+}
+fieldset{
+    border: 2px solid rgb(8, 2, 2);
+    border-radius: 10px;
+}
+div.controls{
+    box-shadow: -2px 6px 6px 0 white;
+}
+	</style>
+
+</head>
+<body>
+	 <div class="container">
+        
+            <div class="image"><img src="https://logowik.com/content/uploads/images/apple-old9427.jpg" alt="logo" width="100px" ></div>
+            <div class="signForm">
+                <form action="" method="post">
+                    <div >
+                        <legend>Sign In</legend>
+                    </div>
+                    <div class="controls">
+                        <fieldset>                                                
+                             
+                            <div>  <label for="email">Email: </label>   </div>
+                            <div>   <input type="email" name="email" id="email">   </div>
+                            <div> <label for="password">Password:</label>  </div>
+                            <div> <input type="password" name="password" id="password">   </div>
+                            <div> <input type="checkbox" value="rememberMe" name="rem" id="rem">  <label for="rem">Remember Me</label>  </div>
+                            <div>  <button type="submit">Login</button> </div>
+                            <div>  <a href="#">Can't Sign In?</a>   </div>
+                            
+                        </fieldset>               
+                    </div>
+                </form>
+            </div>
+
+        
+    </div>
+</body>
+</html>
